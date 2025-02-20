@@ -1,0 +1,5 @@
+global var = 2;
+
+local var2 = 4;
+//This is a single line comment
+a = var + var2;
