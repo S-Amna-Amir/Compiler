@@ -1,0 +1,42 @@
+Grammar after Left Factoring:
+A -> a | ε
+B -> b | ε
+C -> c
+D -> d | ε
+E -> e | ε
+S -> A B C D E
+
+Grammar after Left Recursion Removal:
+A -> a | ε
+B -> b | ε
+C -> c
+D -> d | ε
+E -> e | ε
+S -> A B C D E
+
+FIRST Sets:
+FIRST(A) = { a, ε }
+FIRST(B) = { b, ε }
+FIRST(C) = { c }
+FIRST(D) = { d, ε }
+FIRST(E) = { e, ε }
+FIRST(S) = { a, b, c }
+
+FOLLOW Sets:
+FOLLOW(A) = { b, c }
+FOLLOW(B) = { c }
+FOLLOW(C) = { $, d, e }
+FOLLOW(D) = { $, e }
+FOLLOW(E) = { $ }
+FOLLOW(S) = { $ }
+
+LL(1) Parsing Table:
+
+        Non-Terminal                   $                   a                   b                   c                   d                   e
+--------------------------------------------------------------------------------------------------------------------------------------------
+                   A                                       a                  ε                  ε                                        
+                   B                                                           b                  ε                                        
+                   C                                                                               c                                        
+                   D                  ε                                                                               d                  ε
+                   E                  ε                                                                                                   e
+                   S                               A B C D E           A B C D E           A B C D E                                        
